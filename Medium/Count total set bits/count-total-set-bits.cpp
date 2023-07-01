@@ -14,22 +14,10 @@ class Solution{
     //Function to return sum of count of set bits in the integers from 1 to n.
     int countSetBits(int n)
     {
-        if(n==0) {
-            return 0 ;
-        }
         // Your logic here
-        int x = 0 ;
-        int val = 0 ;
-        while(1<<x <= n){
-            x++ ;
-            val = 1<<x ;
-        } // lp = largest_power of 2.
-        int lp = x-1;
-        int result1 = ((1<<(lp-1))*lp) ;
-        int result2 = (n+1 - (1<<lp)) ;
-        int rest =  n - (1<<lp) ;
-        int ans = result1 + result2 + countSetBits(rest);
-    return ans ;
+        if(n==0) return 0 ;
+        int x = log2(n) ;
+        return (1<<(x-1))*x + (n+1-(1<<x)) + countSetBits(n-(1<<x)) ;
     }
 };
 
