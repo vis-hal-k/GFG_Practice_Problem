@@ -12,7 +12,7 @@ public:
 	int max(int l , int np) {
 	    if(l > np) return l ;
 	    else return np ;
-	}
+	} 
 	int f(int arr[] , int n , vector<int> &dp  ){
 	    if(n==0) {
 	        return arr[n] ;
@@ -20,11 +20,10 @@ public:
 	    if(n<0) return 0 ;
 	    if(dp[n]!=-1) {
 	        return dp[n] ;
-	    }      
-	    
-	    int left = arr[n] +f(arr , n-2 , dp) ;
+	    } 
+	    int pick = arr[n] +f(arr , n-2 , dp) ;
         int notpick  =  f(arr , n-1 , dp ) ;
-        dp[n] = max(left , notpick) ;
+        dp[n] = max(pick , notpick) ;
         return dp[n] ;
 
 	}
