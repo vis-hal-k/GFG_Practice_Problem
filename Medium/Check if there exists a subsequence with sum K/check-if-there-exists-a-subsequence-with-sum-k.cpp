@@ -6,7 +6,7 @@ using namespace std;
 class Solution{
     public:
     bool f(int k , int ind , vector<int> &ds , vector<int> arr, int s , int n) { 
-        if(s > k ) return false ; 
+    if(s>k) return false ;
         if(ind == n) {
             //  satisfied ;
             if(s == k){
